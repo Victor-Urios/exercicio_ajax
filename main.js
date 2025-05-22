@@ -1,25 +1,28 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const nameElement = document.querySelector('#name');
-    const usernameElement = document.querySelector('#username');
-    const avatarElement = document.querySelector('#avatar');
-    const reposElement = document.querySelector('#repos');
-    const followersElement = document.querySelector('#followers');
-    const followingElement = document.querySelector('#following');
-    const linkElement = document.querySelector('#link');
-// juntando as ids para colocar as informações dentro ^
+function Especies(nome, especie, altura, gordura) {
+    this.nome = nome;
+    this.especie = especie;
+    this.altura = altura;
+    this.gordura = gordura;
+}
 
-//pegando as informações do meu github e atribuindo as informações nos locais designados.
-    fetch('https://api.github.com/users/Victor-Urios')
-    .then(function(res) {
-        return res.json();
-    })
-    .then(function(json) {
-        nameElement.innerText = json.name;
-        usernameElement.innerText = json.login;
-        avatarElement.src = json.avatar_url;
-        followingElement.innerText = json.following;
-        followersElement.innerText = json.followers;
-        reposElement.innerText = json.public_repos;
-        linkElement.href =json.html_url;
-    })
-})
+function Cavalo(nome) {
+    Especies.call(this, nome, "Cavalo", altura, gordura)
+    }
+
+function Cachorro(nome) {
+    Especies.call(this, nome, "Cachorro", altura, gordura)    
+}
+
+function Gato(nome) {
+    Especies.call(this, nome, "Gato")
+
+}
+function Sussuarana(nome) {
+    Especies.call(this, nome, "Sussuarana")
+}
+
+const Cachorro1 = new Especies("John", "Cachorro", "80 Centimetros", "20 Kilos");
+const Gato1 = new Especies("Pedrinho", "Gato", "46 Centimetros", "6 Kilos");
+const Cavalo1 = new Especies("Paulinho", "Cavalo", "150 Centimetros", "400 Kilos" );
+const Sussuarana1 = new Especies("Jonas", "Sussuarana","220 Centimetros", "62 Kilos")
+
